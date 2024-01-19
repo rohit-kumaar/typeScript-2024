@@ -80,3 +80,31 @@ class Audi extends Car {
 }
 
 // End  : Classes
+
+// Start : Generics Type
+
+const genericFunc = <T>(number: T): T => number;
+
+const genericFunc_1 = genericFunc(10);
+const genericFunc_2 = genericFunc("Rohit");
+console.log(genericFunc_1);
+console.log(genericFunc_2);
+
+type TUsers = {
+  name: string;
+  age: number;
+};
+
+const users: Array<TUsers> = [
+  { name: "Ved", age: 101 },
+  { name: "Bunny", age: 101 },
+  { name: "Lalit Kumar Mallick", age: 101 },
+];
+
+const findUser = <T, K extends keyof T>(users: Array<T>, idx: K, arr: T[K]) =>
+  users.filter((user) => user[idx] === arr);
+
+console.log(findUser(users, "name", "Ved"));
+console.log(findUser(users, "age", 101));
+
+// End   : Generics Type
